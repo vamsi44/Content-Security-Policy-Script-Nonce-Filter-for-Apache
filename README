@@ -1,0 +1,45 @@
+
+APACHE MODULE FOR SCRIPT NONCE FILTERING
+
+
+Name: Surya Rama Vamsi Varanasi - 108661822
+
+Name: Sreekar Reddy - 108625486
+
+
+Steps for executing the module;
+
+
+1. Install the full apache2 http server by the following steps in the below url:
+
+	http://www.thegeekstuff.com/2008/07/install-apache-2-from-source-on-linux//	
+
+2. Now go to the directory of our source file apache_test_module.c and then execute the following commands:
+
+	sudo apxs2 -ci apache_test_module.c
+
+3. Now open the httpd.conf in the /usr/local/apache2/conf directory and add the following lines to that file:
+
+	LoadModule script_nonce_filter_module /usr/lib/apache2/modules/apache_test_module.so
+
+	NonceFilter On  
+	#(you can use Off instead to turn off the filter) 
+
+ 						or
+
+ 	Replace the httpd.conf file with our httpd.conf file submitted in the zip folder.					
+
+4. Now open the /usr/local/apache2/htdocs/ directory and replace the existing index.html file with our index.html file in the zip folder submitted.
+
+5. Now go to /usr/local/apache2/bin directory and start/stop the apache server using the following commands 
+
+	sudo ./apachectl start
+
+	sudo ./apachectl stop
+
+6. Now load the localhost/index.hmtl in your browser and check that module works. 
+
+NOTE: The current Version 28.0.1500.5 dev of google chrome only supports CSP.
+
+
+
